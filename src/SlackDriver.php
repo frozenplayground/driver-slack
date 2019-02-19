@@ -221,7 +221,8 @@ class SlackDriver extends HttpDriver implements VerifiesService
                 'image_url' => $button['image_url'],
                 'type' => $button['type'],
                 'value' => $button['value'],
-            ], $button['additional']);
+            ], $button['additional'],
+            isset($button['url']) ? ['url' => $button['url']] : []);
         })->toArray();
         $questionData['actions'] = $buttons;
 
